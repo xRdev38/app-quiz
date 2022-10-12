@@ -1,5 +1,8 @@
 <header>
-  <div class="count-question">
+  <div *ngIf="currentQuestion && totalQuestion" class="count-question">
     Question {{ currentQuestion }} / {{ totalQuestion }}
   </div>
+  <ng-container *ngIf="time">
+    <app-timer [timeLeft]="time"></app-timer>
+  </ng-container>
 </header>
