@@ -1,0 +1,36 @@
+@use 'src/styles/base/variables' as vars;
+@use 'src/styles/base/fonts' as font;
+
+html {
+  margin: 0;
+  padding: 0;
+  font-size: font.$font-size-html;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  overflow-wrap: break-word;
+  background-color: vars.$light-white;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: font.$font-family-base;
+  font-size: font.$font-size-base;
+  line-height: font.$line-height-base;
+  background-color: font.$body-bg;
+  color: font.$body-color;
+  height: 100vh;
+  width: 100vw;
+}
+
+main {
+  display: block;
+  width: 100%;
+}
+
+.main-content {
+  display: block;
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+}

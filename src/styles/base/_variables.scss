@@ -1,0 +1,41 @@
+// ----------------------
+// == Variables
+// ----------------------
+
+$z-indexes: (
+  'dropdown': 1000,
+  'middle' : 500,
+  'default': 1,
+  'below': -1,
+) !default;
+
+$f-size: (
+  'xxlarge': 6rem,
+  'xlarge': 5rem,
+  'large': 4rem
+) !default;
+
+$light-white: #FAFAFA;
+$light-yellow: #FFD40080;
+$yellow: #FFD400;
+$white: #FFFFFF;
+$black: #0C0C0C;
+$pink: #FF000080;
+$grey: #00000029;
+$red: #FF0000;
+$orange: #FFC000;
+$light-green: #92D050;
+$mid-yellow: #FFC00080;
+$dark-grey: #404040;
+$mid-grey: #8C8C8C;
+$light-grey: #D8D8D8;
+$green: #00B050;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 978px,
+  xl: 1200px,
+  xxl: 1400px
+);

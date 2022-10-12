@@ -1,0 +1,61 @@
+@use 'src/styles/base/variables' as vars;
+@use 'src/styles/core/functions' as function;
+
+#overlay {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: function.z(default);
+  cursor: pointer;
+}
+
+#loader {
+  position: relative;
+  z-index: function.z(middle);
+}
+
+.half-size {
+  @extend %half-size !optional;
+}
+
+.two-tree-size {
+  @extend %two-tree-size !optional;
+}
+
+.level {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  @media (max-width: function.get-breakpoints(lg)) {
+    justify-content: center;
+  }
+  &-left {
+    align-items: flex-start;
+    justify-content: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    @media (max-width: function.get-breakpoints(lg)) {
+      justify-content: center;
+      width: 100% !important;
+    }
+  }
+  &-right {
+    align-items: center;
+    justify-content: flex-end;
+    flex-grow: 1;
+    @media (max-width: function.get-breakpoints(lg)) {
+      justify-content: center;
+    }
+  }
+  &-item {
+    padding: 1.25rem;
+  }
+}

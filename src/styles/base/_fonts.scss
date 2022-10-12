@@ -1,0 +1,12 @@
+// ----------------------
+// == Fonts
+// ----------------------
+@use 'src/styles/base/variables' as vars;
+
+$default-font-face-family: 'Inter', sans-serif !default;
+$font-size-html: 100% !default;
+$body-color:  vars.$black;
+$body-bg: vars.$light-white;
+$font-size-base: 1rem !default;
+$line-height-base: 1.5 !default;
+$font-family-base: $default-font-face-family !default;

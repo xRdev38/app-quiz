@@ -1,0 +1,49 @@
+@use 'src/styles/base/variables' as vars;
+// ----------------------
+// == Functions scss
+// ----------------------
+
+/// Méthode pour récupérer le z-index en fonction du nom du layer
+/// @access public
+/// @param {String} $layer - Nom du layer
+/// @return {Number}
+/// @require $z-indexes
+@function z($layer) {
+  @return map-get(vars.$z-indexes, $layer);
+}
+
+/// Méthode pour récupérer le breakpoint en fonction du nom du layer
+/// @access public
+/// @param {String} $layer - Nom du layer
+/// @return {Number}
+/// @require $grid-breakpoints
+@function get-breakpoints($layer) {
+  @return map-get(vars.$grid-breakpoints, $layer);
+}
+
+/// Méthode pour récupérer la taille de font
+/// @access public
+/// @param {String} $layer - Nom de la taille de la font
+/// @return {String}
+/// @require $f-sizes
+@function get-font-size($layer) {
+  @return map-get(vars.$f-size, $layer);
+}
+
+/// Méthode pour faire un parse en nombre
+/// @access public
+/// @param {String | Number} $size - Unité à convertir
+/// @return {Number}
+@function parseInt($n) {
+  @return $n / ($n * 0 + 1);
+}
+
+/// Méthode pour convertir les unités rem a pixels
+/// @access public
+/// @param {String} $size - Unité rem à convertir
+/// @param {String} $basePx - Base en pixel
+/// @return {Number}
+@function rem-to-px($size, $basePx) {
+  $value: parseInt($size) * $basePx;
+  @return round($value);
+}
