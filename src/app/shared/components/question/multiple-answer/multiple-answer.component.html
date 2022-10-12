@@ -1,0 +1,10 @@
+<div  [formGroup]="formGroup" class="multiple-answer">
+  <h2>{{ question.label }}</h2>
+  <div class="multiple-answer__grid">
+    <div class="options" *ngFor="let option of question.options; index as i">
+      <span>{{ option.text }}</span>
+      <mat-checkbox (change)="selected($event)" [value]="option.text" [class]="option.className"></mat-checkbox>
+    </div>
+  </div>
+</div>
+

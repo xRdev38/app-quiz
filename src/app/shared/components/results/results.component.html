@@ -1,0 +1,15 @@
+<ng-container *ngIf="answers">
+  <div class="results">
+    <div class="answer" *ngFor="let answer of answers; let i = index; trackBy: trackByAnswer">
+      <span class="question">
+        [Question {{i + 1}}]
+        <ng-container *ngIf="answer.isCorrect">
+          <mat-icon class="icon-check">check</mat-icon>
+        </ng-container>
+        <ng-container *ngIf="!answer.isCorrect">
+          <mat-icon class="icon-cross">close</mat-icon>
+        </ng-container>
+        </span>
+    </div>
+  </div>
+</ng-container>

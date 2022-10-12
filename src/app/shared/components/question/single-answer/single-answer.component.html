@@ -1,0 +1,9 @@
+<div  [formGroup]="formGroup" class="single-answer">
+  <h2>{{ question.label }}</h2>
+  <div class="single-answer__grid">
+    <div class="options" *ngFor="let option of question.options; index as i">
+      <span>{{ option.text }}</span>
+      <mat-radio-button (change)="selected($event)" [value]="option.text" [class]="option.className"></mat-radio-button>
+    </div>
+  </div>
+</div>

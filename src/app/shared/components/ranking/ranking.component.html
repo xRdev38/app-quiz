@@ -1,0 +1,7 @@
+<ng-container *ngIf="ranking$ | async as ranking">
+  <div class="ranking">
+    <div class="ranking__icon"><img src="../../../../assets/images/cup.png" alt="Cup" title="Cup" /></div>
+    <div class="ranking__title">Meilleur score</div>
+    <div class="ranking__score">{{ ranking }} / 10</div>
+  </div>
+</ng-container>

@@ -1,0 +1,15 @@
+<ng-container *ngIf="type$ | async as type">
+  <form [formGroup]="formGroup">
+    <ng-template #widgetInput></ng-template>
+    <div class="actions">
+      <button [disabled]="!formGroup.valid"
+              (click)="submit()"
+              type="submit"
+              class="btn-valid"
+              mat-raised-button color="primary">
+        VALIDER
+      </button>
+    </div>
+  </form>
+</ng-container>
+
