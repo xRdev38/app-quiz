@@ -1,0 +1,27 @@
+:root {
+  display: flex;
+  width: 100%;
+}
+
+header {
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  height: 80px;
+  background: linear-gradient(90deg, #0E0B77 0%, #2320B7 51.97%, #0E0B77 101.13%);
+  box-sizing: border-box;
+}
+
+.count-question {
+  padding: 8px;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 130%;
+  color: #16175F;
+  background: #FFFFFF;
+  border-radius: 8px;
+}
