@@ -1,0 +1,9 @@
+<app-header class="header"
+            [totalQuestion]="totalQuestion$ | async"
+            [currentQuestion]="currentIndex$ | async"
+            [time]="120">
+</app-header>
+<ng-container *ngIf="currentQuestion$ | async as question">
+  <app-question (answer)="goToValid($event)" [question]="question">
+  </app-question>
+</ng-container>

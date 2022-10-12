@@ -1,0 +1,5 @@
+<app-home [loading]="loading$ | async"
+          [totalQuestion]="totalQuestions$ | async"
+          [ranking]="ranking$ | async"
+          (begin)="goToQuiz()">
+</app-home>

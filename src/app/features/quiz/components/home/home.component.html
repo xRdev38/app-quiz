@@ -1,0 +1,19 @@
+<div class="home">
+  <div class="home__half-first home__half-first--bg">
+    <img src="assets/logo/logo.png" alt="" title="logo" />
+  </div>
+  <div class="home__half-second">
+    <div class="welcome">
+      <span class="subtitle" *ngIf="totalQuestion">{{ totalQuestion }} questions</span>
+      <!--<h1>Mon test technique</h1>-->
+      <h1>Mon quizz</h1>
+      <button (click)="begin.emit()" [disabled]="loading" mat-raised-button color="primary">Démarrer</button>
+    </div>
+    <span *ngIf="loading" class="spinner">
+      <mat-spinner></mat-spinner>
+    </span>
+  </div>
+  <ng-container *ngIf="ranking">
+    <app-ranking class="ranking" [rank]="ranking"></app-ranking>
+  </ng-container>
+</div>

@@ -1,0 +1,18 @@
+<app-header class="header">
+</app-header>
+<div class="results">
+  <div class="results__board">
+    <img src="assets/images/cup.png" alt="cup">
+    <h3>Le quiz est terminé !</h3>
+    <ng-container *ngIf="ranking$ | async as ranking">
+      <div class="ranking">
+        <span class="ranking__title">{{ ranking }} / 10 </span>
+        <span class="ranking__subtitle">réponses justes</span>
+      </div>
+    </ng-container>
+  </div>
+  <div class="results__details">
+    <h3>Détail des résultats</h3>
+    <app-results [answers]="answers$ | async"></app-results>
+  </div>
+</div>
