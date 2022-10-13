@@ -6,6 +6,7 @@ import {
   Output,
 } from '@angular/core';
 import { BaseComponent } from '../base.component';
+import { BehaviorSubject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-timer',
@@ -24,37 +25,26 @@ export class TimerComponent extends BaseComponent {
 
   @Output() timeEnd = new EventEmitter<void>();
 
+  time$ = new BehaviorSubject<number>(120);
   _timeLeft!: number;
-  display!: string;
   timerInterval!: any;
 
   constructor() {
     super();
+    this.onInit$.pipe(takeUntil(this.onDestroy$)).subscribe(() => {
+      this.timer();
+    });
   }
 
-  timer(minute: number = 2) {
-    let seconds: number = minute * 60;
-    let textSec: any = '0';
-    let statSec: number = 60;
-
-    const prefix = minute < 10 ? '0' : '';
-
+  timer() {
     this.timerInterval = setInterval(() => {
-      seconds--;
-      if (statSec != 0) statSec--;
-      else statSec = 59;
-
-      if (statSec < 10) {
-        textSec = '0' + statSec;
-      } else textSec = statSec;
-
-      this.display = `${prefix}${Math.floor(seconds / 60)}:${textSec}`;
-
-      if (seconds == 0) {
-        console.log('finished');
+      if (this._timeLeft > 0) {
+        this.time$.next(this._timeLeft);
+        this._timeLeft -= 1;
+      } else {
         clearInterval(this.timerInterval);
         this.timeEnd.emit();
       }
-    }, 1000);
+    }, 500);
   }
 }
