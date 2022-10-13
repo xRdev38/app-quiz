@@ -1,4 +1,5 @@
 <app-header class="header"
+            (endTime)="redirectToResults()"
             [totalQuestion]="totalQuestion$ | async"
             [currentQuestion]="currentIndex$ | async"
             [time]="120">

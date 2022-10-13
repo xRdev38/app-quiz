@@ -38,13 +38,17 @@ export class HeaderComponent extends BaseComponent {
     return this._time;
   }
 
-  @Output() endTime = new EventEmitter();
+  @Output() endTime = new EventEmitter<void>();
 
   private _totalQuestion: number | null = 0;
   private _currentQuestion: number | null = 0;
-  private _time = 120;
+  private _time!: number;
 
   constructor() {
     super();
+  }
+
+  getEndOfQuiz(): void {
+    this.endTime.emit();
   }
 }

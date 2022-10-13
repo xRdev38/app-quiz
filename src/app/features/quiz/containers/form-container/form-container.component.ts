@@ -39,6 +39,9 @@ export class FormContainerComponent extends BaseComponent {
 
     this.route.params.subscribe(params => {
       this.currentIndex$.next(params['id']);
+      if (params['id'] === '1') {
+        this.localService.removeData('answers');
+      }
     });
 
     combineLatest([this.onInit$, this.currentIndex$])
@@ -92,6 +95,10 @@ export class FormContainerComponent extends BaseComponent {
         this.currentIndex$.value,
       ]);
     }
+  }
+
+  async redirectToResults(): Promise<void> {
+    await this.router.navigate(['quiz', QuizRoutingEnum.Results]);
   }
 
   updateScore(answers: Answer) {

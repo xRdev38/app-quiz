@@ -3,6 +3,6 @@
     Question {{ currentQuestion }} / {{ totalQuestion }}
   </div>
   <ng-container *ngIf="time">
-    <app-timer [timeLeft]="time"></app-timer>
+    <app-timer (timeEnd)="getEndOfQuiz()" [timeLeft]="time"></app-timer>
   </ng-container>
 </header>
