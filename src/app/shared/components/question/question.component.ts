@@ -26,7 +26,6 @@ import {
   QuestionType,
 } from '../../models';
 import { BehaviorSubject, takeUntil } from 'rxjs';
-import { TimerService } from '../../services';
 import { TextAnswerComponent } from './text-answer/text-answer.component';
 import { MultipleAnswerComponent } from './multiple-answer/multiple-answer.component';
 import { SingleAnswerComponent } from './single-answer/single-answer.component';
@@ -70,7 +69,7 @@ export class QuestionComponent extends BaseComponent implements OnChanges {
   widgetRef!: ViewContainerRef;
   @ViewChild(FormGroupDirective) formGroupDirective!: FormGroupDirective;
 
-  constructor(private readonly timerService: TimerService) {
+  constructor() {
     super();
 
     this.formGroup = new FormGroup({
@@ -99,7 +98,7 @@ export class QuestionComponent extends BaseComponent implements OnChanges {
     if (!question) {
       return;
     }
-    this.initializeFormControl(question);
+    this.initializeFormControl();
     this.initializeWidget(question);
   }
 
@@ -109,13 +108,11 @@ export class QuestionComponent extends BaseComponent implements OnChanges {
     }
 
     const results = this.formGroup.value;
-    console.log('R', results);
-    /*
+
     this.answer.emit({
       user_answer: results['answer']?.['options'] ?? results['answer'],
       correct_answer: this.question.answer,
     });
-     */
   }
 
   initializeWidget(question: Question) {
@@ -166,7 +163,7 @@ export class QuestionComponent extends BaseComponent implements OnChanges {
     this.initializeWidgetContent(componentRef, question);
   }
 
-  initializeFormControl(value?: any) {
+  initializeFormControl() {
     if (this.formGroup.get('answer')) {
       this.formGroup.removeControl('answer');
     }
